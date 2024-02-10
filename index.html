@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div id="valentine-card">
+        <h1>CHOOSE WISELY...</h1>
+        <h2>Will You Be My Valentine?</h2>
+        <div id="question">NUVIS, WILL YOU BE MY VALENTINE?</div>
+        <div id="response-buttons">
+            <button class="response-button" onclick="sayYes()">YES</button>
+            <button class="response-button" onclick="sayMaybe()">MMM I GUESS</button>
+        </div>
+    </div>
+    <div id="gifModal" class="modal">
+        <img class="modal-content" id="gifImg" src="Confetti.gif" alt="Confetti animation">
+        <p id="yay">Yay! Happy Valentine's Day, NUVIS!</p>
+    </div>
+    <script>
+        var modal = document.getElementById("gifModal");
+        modal.style.display = "none";
+
+        var yay = document.getElementById("yay");
+        yay.style.display = "none";
+
+        function sayYes() {
+            modal.style.display = "block";
+            yay.style.display = "block";
+        }
+
+        function sayMaybe() {
+            alert("Try again, seems like you may have chosen the wrong one!");
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Close modal when clicking outside modal content
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Close modal when pressing escape key
+        document.onkeydown = function(evt) {
+            evt = evt || window.event;
+            if (evt.keyCode == 27) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+</body>
+</html>
